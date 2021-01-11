@@ -5019,7 +5019,7 @@ void SurfaceFlinger::setPowerModeInternal(const sp<DisplayDevice>& display, hal:
             if (display->isPrimary() && mode != hal::PowerMode::DOZE_SUSPEND) {
                 getHwComposer().setVsyncEnabled(*displayId, mHWCVsyncPendingState);
                 mScheduler->onScreenAcquired(mAppConnectionHandle);
-                mScheduler->resyncToHardwareVsync(true, getVsyncPeriodFromHWC());
+                mScheduler->resyncToHardwareVsync(true, vsyncPeriod);
             }
         } else if ((mPluggableVsyncPrioritized && (displayId != getInternalDisplayIdLocked())) ||
                     displayId == getInternalDisplayIdLocked()) {
